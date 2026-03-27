@@ -23,6 +23,7 @@ export interface User {
   name: string;
   email: string;
   isAdmin: boolean;
+  role: 'user' | 'vendor' | 'admin'; // 🔥 ADD THIS
 }
 
 export interface UserInfo {

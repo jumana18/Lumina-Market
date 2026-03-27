@@ -26,6 +26,7 @@ const Navbar = () => {
   useEffect(() => {
     const handleScroll = () => setIsScrolled(window.scrollY > 20);
     window.addEventListener('scroll', handleScroll);
+    
     return () => window.removeEventListener('scroll', handleScroll);
   }, []);
 
@@ -90,12 +91,12 @@ const Navbar = () => {
           {userInfo ? (
             <div className="flex items-center gap-4">
 
-              {userInfo.isAdmin && (
-                <Link to="/add-product" className="flex items-center gap-2 hover:text-accent transition-colors">
-                  <Plus className="w-5 h-5" />
-                  <span className="hidden sm:inline text-sm font-bold">Add Product</span>
-                </Link>
-              )}
+           {userInfo?.role === 'vendor' && (
+  <Link to="/add-product" className="flex items-center gap-2 hover:text-accent transition-colors">
+    <Plus className="w-5 h-5" />
+    <span className="hidden sm:inline text-sm font-bold">Add Product</span>
+  </Link>
+)}
 
               <Link to="/profile" className="hidden sm:flex items-center gap-2 hover:text-accent transition-colors">
                 <User className="w-5 h-5" />
