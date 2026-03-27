@@ -11,6 +11,9 @@ const productSchema = mongoose.Schema(
     countInStock: { type: Number, required: true, default: 0 },
     sizes: { type: [String], default: [] },
     colors: { type: [String], default: [] },
+
+    user: { type: mongoose.Schema.Types.ObjectId, ref: 'User', required: true }, // vendor ID
+    approved: { type: Boolean, default: false }, // admin approval
   },
   { timestamps: true }
 );
